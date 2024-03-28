@@ -45,8 +45,7 @@ MariaDB [(none)]> exit
 ```
 5. Handle web server
 ```
-cd /etc/nginx/sites-available
-sudo vi wordpress.conf
+sudo vi /etc/nginx/sites-available/wordpress.conf
 ```
 6. In it:
 ```
@@ -77,9 +76,11 @@ server {
 11. Go to Site Health and see the critical issues? Run `sudo apt install php-curl php-dom php-mbstring php-imagick php-zip php-gd`
 12. Deal with SSL using CertBot and LetsEncrypt once we have a Domain or and Elastic IP
 ```
+
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
 PUT THE DOMAIN
 ```
+13. When the Public IP Changes, update `/etc/nginx/sites-available/wordpress.conf`
